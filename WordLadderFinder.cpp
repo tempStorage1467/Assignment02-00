@@ -1,26 +1,33 @@
-//
-//  WordLadderFinder.cpp
-//  Word Ladder
-//
-//  Created by Eric Beach on 4/17/13.
-//
-//
+/*
+ * File: WordLadderFinder.cpp
+ * ----------------------
+ * Name: Eric Beach
+ * Section: SCPD, Aaron Broder <abroder@stanford.edu>
+ * Copyright 2013 Eric Beach <ebeach@google.com>
+ * Assignment 2 - Pt. 1 - Word Ladder
+ * This file implements a class responsible for finding a word ladder
+ *   between two words.
+ *
+ * This file lightly linted using
+ * http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
+ */
 
+#include <string>
 #include "WordLadderFinder.h"
 
 WordLadderFinder::WordLadderFinder() {
     dictionary = Lexicon();
 }
 
-WordLadderFinder::WordLadderFinder(Lexicon dict) {
+WordLadderFinder::WordLadderFinder(const Lexicon& dict) {
     dictionary = dict;
 }
 
-void WordLadderFinder::setEndingWord(string endingStr) {
+void WordLadderFinder::setEndingWord(const string& endingStr) {
     endingWord = endingStr;
 }
 
-void WordLadderFinder::setStartingWord(string startingStr) {
+void WordLadderFinder::setStartingWord(const string& startingStr) {
     startingWord = startingStr;
 }
 
@@ -33,10 +40,10 @@ Vector<string> WordLadderFinder::getWordLadder() {
     Vector<string> firstLadder;
     firstLadder.add(startingWord);
     ladders.enqueue(firstLadder);
-    
+
     // Step 3: Create set to store words previously used in ladder
     Set<string> usedWords;
-    
+
     // Step 4: Breadth-first search for word ladder
     Vector <string> currentLadder;
     string lastWordInCurrentLadder;
@@ -50,7 +57,7 @@ Vector<string> WordLadderFinder::getWordLadder() {
         }
         wordsToExploreInLadder =
           lexHelper.getWordsDiffByChar(lastWordInCurrentLadder);
-        
+
         for (string word : wordsToExploreInLadder) {
             if (!usedWords.contains(word)) {
                 newLadder = currentLadder;

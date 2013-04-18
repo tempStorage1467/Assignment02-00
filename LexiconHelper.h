@@ -1,27 +1,32 @@
-//
-//  LexiconHelper.h
-//  Word Ladder
-//
-//  Created by Eric Beach on 4/18/13.
-//
-//
+/*
+ * File: LexiconHelper.h
+ * ----------------------
+ * Name: Eric Beach
+ * Section: SCPD, Aaron Broder <abroder@stanford.edu>
+ * Copyright 2013 Eric Beach <ebeach@google.com>
+ * Assignment 2 - Pt. 1 - Word Ladder
+ * This file defines a class that helps with lexicon operations such as
+ *   finding all words different by one character.
+ *
+ * This file lightly linted using
+ * http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
+ */
 
-#ifndef __Word_Ladder__LexiconHelper__
-#define __Word_Ladder__LexiconHelper__
+#ifndef LEXICONHELPER_H_
+#define LEXICONHELPER_H_
 
 #include <iostream>
 #include <string>
 #include "set.h"
 #include "lexicon.h"
-#include "set.h"
 
 class LexiconHelper {
-public:
-    LexiconHelper(Lexicon dict);
-    Set<string> getWordsDiffByChar(string currentWord);
-    
-private:
+ public:
+    LexiconHelper(const Lexicon& dict);
+    Set<string> getWordsDiffByChar(const string& currentWord);
+
+ private:
     Lexicon dictionary;
 };
 
-#endif /* defined(__Word_Ladder__LexiconHelper__) */
+#endif  // LEXICONHELPER_H_

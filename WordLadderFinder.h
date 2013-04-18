@@ -1,13 +1,19 @@
-//
-//  WordLadderFinder.h
-//  Word Ladder
-//
-//  Created by Eric Beach on 4/17/13.
-//
-//
+/*
+ * File: WordLadder.h
+ * ----------------------
+ * Name: Eric Beach
+ * Section: SCPD, Aaron Broder <abroder@stanford.edu>
+ * Copyright 2013 Eric Beach <ebeach@google.com>
+ * Assignment 2 - Pt. 1 - Word Ladder
+ * This file defines a class responsible for finding word ladders between
+ *   two words.
+ *
+ * This file lightly linted using
+ * http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py
+ */
 
-#ifndef __Word_Ladder__WordLadderFinder__
-#define __Word_Ladder__WordLadderFinder__
+#ifndef WORDLADDERFINDER_H_
+#define WORDLADDERFINDER_H_
 
 #include <iostream>
 #include <string>
@@ -20,9 +26,9 @@
 class WordLadderFinder {
  public:
     WordLadderFinder();
-    WordLadderFinder(Lexicon dict);
-    void setStartingWord(string startingStr);
-    void setEndingWord(string endingStr);
+    WordLadderFinder(const Lexicon& dict);
+    void setStartingWord(const string& startingStr);
+    void setEndingWord(const string& endingStr);
     Vector<string> getWordLadder();
 
  private:
@@ -31,4 +37,4 @@ class WordLadderFinder {
     Lexicon dictionary;
 };
 
-#endif /* defined(__Word_Ladder__WordLadderFinder__) */
+#endif  // WORDLADDERFINDER_H_
