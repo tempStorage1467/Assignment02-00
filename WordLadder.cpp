@@ -39,7 +39,7 @@ void printLadder(const Vector<string>& ladder) {
 
 string getWord(const string& prompt) {
     string input = getLine(prompt);
-    // TODO: convert to lower case
+    input = toLowerCase(input);
     return input;
 }
 
@@ -52,7 +52,8 @@ int runWordLadder() {
 
     string endingWord = getWord("Enter ending word: ");
     if (startingWord.size() != endingWord.size()) {
-        cout << "No word ladder could be found." << endl;
+        cout << "No word ladder could be found. Enter words of the " <<
+                "same length" << endl;
         return 1;
     }
 
@@ -72,8 +73,8 @@ int main() {
     tests.testWordLadderFinder();
 
     // Run Word Ladder
-    while (runWordLadder() != 0) {
-        cout << "" << endl;
+    while (runWordLadder()) {
+        cout << endl;
     }
     return 0;
 }
