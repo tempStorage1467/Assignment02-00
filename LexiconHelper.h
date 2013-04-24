@@ -27,6 +27,9 @@ class LexiconHelper {
     // get set of words that differ from the current word
     Set<string> getWordsDiffByChar(const string& currentWord);
 
+    // get set of words that differ from the current word; improve efficiency
+    Set<string> getWordsDiffByCharEffic(const string& currentWord);
+
  private:
     // dictionary of words to search through
     Lexicon dictionary;

@@ -13,6 +13,7 @@
  */
 
 #include <string>
+#include "time.h"
 #include "LexiconHelper.h"
 
 /*
@@ -25,10 +26,32 @@ LexiconHelper::LexiconHelper(const Lexicon& dict) {
 /*
  * Compute all the words
  */
-Set<string> LexiconHelper::getWordsDiffByChar(const string& currentWord) {
+Set<string> LexiconHelper::getWordsDiffByChar(const string& currentWord) {    
     Set<string> words;
     string wordPermutation;
     for (int i = 0; i < currentWord.length(); i++) {
+        for (int j = 'a'; j <= 'z'; j++) {
+            wordPermutation = currentWord;
+            wordPermutation[i] = j;
+            if (this->dictionary.contains(wordPermutation)
+                && wordPermutation != currentWord) {
+                words.add(wordPermutation);
+            }
+        }
+    }
+    return words;
+}
+
+/*
+ * Compute all the words, using some efficiency improvements
+ */
+Set<string> LexiconHelper::getWordsDiffByCharEffic(const string& currentWord) {
+    Set<string> words;
+    string wordPermutation;
+    for (int i = 0; i < currentWord.length(); i++) {
+        if (!this->dictionary.containsPrefix(currentWord.substr(0, i))) {
+            continue;
+        }
         for (int j = 'a'; j <= 'z'; j++) {
             wordPermutation = currentWord;
             wordPermutation[i] = j;

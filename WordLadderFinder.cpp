@@ -47,6 +47,8 @@ void WordLadderFinder::setStartingWord(const string& startingStr) {
  * Find and return the shortest word ladder, if one exists.
  */
 Vector<string> WordLadderFinder::getWordLadder() {
+    double beginTime = clock();
+    
     // Step 1: Setup the dictionary
     LexiconHelper lexHelper = LexiconHelper(this->dictionary);
 
@@ -71,7 +73,7 @@ Vector<string> WordLadderFinder::getWordLadder() {
             return currentLadder;
         }
         wordsToExploreInLadder =
-          lexHelper.getWordsDiffByChar(lastWordInCurrentLadder);
+          lexHelper.getWordsDiffByCharEffic(lastWordInCurrentLadder);
 
         for (string word : wordsToExploreInLadder) {
             if (!usedWords.contains(word)) {
@@ -85,5 +87,9 @@ Vector<string> WordLadderFinder::getWordLadder() {
 
     // no ladder found; return a blank ladder
     currentLadder = Vector<string>();
+    
+    double endTime = clock();
+    double time = (endTime - beginTime) / CLOCKS_PER_SEC;
+    cout << time << endl;
     return currentLadder;
 }
