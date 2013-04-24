@@ -15,6 +15,9 @@
 #include <string>
 #include "UnitTests.h"
 
+/*
+ * Test whether two sets are equal.
+ */
 bool UnitTests::assertEquals(const Set<string>& expected,
                              const Set<string>& actual) {
     if (actual.size() != expected.size()) {
@@ -37,6 +40,9 @@ bool UnitTests::assertEquals(const Set<string>& expected,
     return true;
 }
 
+/*
+ * Test whether two vectors are equal.
+ */
 bool UnitTests::assertEquals(const Vector<string>& expected,
                              const Vector<string>& actual) {
     if (expected.size() != actual.size()) {
@@ -52,14 +58,23 @@ bool UnitTests::assertEquals(const Vector<string>& expected,
     return true;
 }
 
+/*
+ * Method to test the word ladder finder class.
+ */
 void UnitTests::testWordLadderFinder() {
-    testGetWordLadder();
+    this->testGetWordLadder();
 }
 
+/*
+ * Method to test the lexicon helper class.
+ */
 void UnitTests::testLexiconHelper() {
-    testGetWordsByDiffChar();
+    this->testGetWordsByDiffChar();
 }
 
+/*
+ * Test the getWordsByDiffChar() method
+ */
 void UnitTests::testGetWordsByDiffChar() {
     // TEST 1
     Lexicon lexicon1 = Lexicon();
@@ -106,6 +121,9 @@ void UnitTests::testGetWordsByDiffChar() {
     assertEquals(words2, expected2);
 }
 
+/*
+ * Test the getWordLadder() method.
+ */
 void UnitTests::testGetWordLadder() {
     // TEST 1
     Lexicon lexicon1 = Lexicon();

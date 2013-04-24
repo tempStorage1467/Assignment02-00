@@ -24,12 +24,22 @@
 
 class UnitTests {
  public:
+    // test the word ladder finder class
     void testWordLadderFinder();
+
+    // test the lexicon helper class
     void testLexiconHelper();
  private:
+    // determine whether two sets are equal
     bool assertEquals(const Set<string>& set1, const Set<string>& set2);
+
+    // determine whether two vectors are equal
     bool assertEquals(const Vector<string>& vec1, const Vector<string>& vec2);
+
+    // test the getWordsByDiffChar() method
     void testGetWordsByDiffChar();
+
+    // test the getWordLadder() method
     void testGetWordLadder();
 };
 

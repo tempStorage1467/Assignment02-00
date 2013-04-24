@@ -25,10 +25,19 @@
 
 class WordLadderFinder {
  public:
+    // defaut constructor
     WordLadderFinder();
+
+    // constructor to receive a lexicon
     WordLadderFinder(const Lexicon& dict);
+
+    // set the starting word of the word ladder
     void setStartingWord(const string& startingStr);
+
+    // set the ending word of the word ladder
     void setEndingWord(const string& endingStr);
+
+    // get a word ladder
     Vector<string> getWordLadder();
 
  private:

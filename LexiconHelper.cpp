@@ -15,19 +15,24 @@
 #include <string>
 #include "LexiconHelper.h"
 
+/*
+ * Constructor to receive a lexicon to work on.
+ */
 LexiconHelper::LexiconHelper(const Lexicon& dict) {
-    dictionary = dict;
+    this->dictionary = dict;
 }
 
+/*
+ * Compute all the words
+ */
 Set<string> LexiconHelper::getWordsDiffByChar(const string& currentWord) {
     Set<string> words;
-    // TODO: use prefix to narrow search
     string wordPermutation;
     for (int i = 0; i < currentWord.length(); i++) {
         for (int j = 'a'; j <= 'z'; j++) {
             wordPermutation = currentWord;
             wordPermutation[i] = j;
-            if (dictionary.contains(wordPermutation)
+            if (this->dictionary.contains(wordPermutation)
                 && wordPermutation != currentWord) {
                 words.add(wordPermutation);
             }

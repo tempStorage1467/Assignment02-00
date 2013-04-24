@@ -23,6 +23,9 @@
 
 using namespace std;
 
+/*
+ * Print a word ladder, if one exists.
+ */
 void printLadder(const Vector<string>& ladder) {
     if (ladder.size() == 0) {
         cout << "No word ladder could be found." << endl;
@@ -37,12 +40,19 @@ void printLadder(const Vector<string>& ladder) {
     }
 }
 
+/*
+ * Prompt the user for a word and return it in lower case.
+ */
 string getWord(const string& prompt) {
     string input = getLine(prompt);
     input = toLowerCase(input);
     return input;
 }
 
+/*
+ * Run the word ladder program, prompting the user for words and finding
+ *   any word ladder if one exists.
+ */
 int runWordLadder() {
     // Setup: Get starting and ending words
     string startingWord = getWord("Enter starting word (or nothing to quit): ");
@@ -66,6 +76,9 @@ int runWordLadder() {
     return 1;
 }
 
+/*
+ * Run unit tests and then run the word ladder program.
+ */
 int main() {
     // Run Unit Tests
     UnitTests tests = UnitTests();

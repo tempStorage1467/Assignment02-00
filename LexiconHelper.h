@@ -23,9 +23,12 @@
 class LexiconHelper {
  public:
     LexiconHelper(const Lexicon& dict);
+
+    // get set of words that differ from the current word
     Set<string> getWordsDiffByChar(const string& currentWord);
 
  private:
+    // dictionary of words to search through
     Lexicon dictionary;
 };
 

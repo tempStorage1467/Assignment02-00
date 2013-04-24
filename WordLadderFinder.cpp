@@ -15,30 +15,45 @@
 #include <string>
 #include "WordLadderFinder.h"
 
+/*
+ * Default constructor for WordLadderFinder.
+ */
 WordLadderFinder::WordLadderFinder() {
-    dictionary = Lexicon();
+    this->dictionary = Lexicon();
 }
 
+/*
+ * Constructor for WordLadderFinder, which receives a lexicon.
+ */
 WordLadderFinder::WordLadderFinder(const Lexicon& dict) {
-    dictionary = dict;
+    this->dictionary = dict;
 }
 
+/*
+ * Set the starting word of the ladder.
+ */
 void WordLadderFinder::setEndingWord(const string& endingStr) {
-    endingWord = endingStr;
+    this->endingWord = endingStr;
 }
 
+/*
+ * Set the ending word of the ladder.
+ */
 void WordLadderFinder::setStartingWord(const string& startingStr) {
-    startingWord = startingStr;
+    this->startingWord = startingStr;
 }
 
+/*
+ * Find and return the shortest word ladder, if one exists.
+ */
 Vector<string> WordLadderFinder::getWordLadder() {
     // Step 1: Setup the dictionary
-    LexiconHelper lexHelper = LexiconHelper(dictionary);
+    LexiconHelper lexHelper = LexiconHelper(this->dictionary);
 
     // Step 2: Setup the queue of word ladders
     Queue<Vector <string> > ladders;
     Vector<string> firstLadder;
-    firstLadder.add(startingWord);
+    firstLadder.add(this->startingWord);
     ladders.enqueue(firstLadder);
 
     // Step 3: Create set to store words previously used in ladder
@@ -52,7 +67,7 @@ Vector<string> WordLadderFinder::getWordLadder() {
     while (!ladders.isEmpty()) {
         currentLadder = ladders.dequeue();
         lastWordInCurrentLadder = currentLadder.get(currentLadder.size() - 1);
-        if (lastWordInCurrentLadder == endingWord) {
+        if (lastWordInCurrentLadder == this->endingWord) {
             return currentLadder;
         }
         wordsToExploreInLadder =
